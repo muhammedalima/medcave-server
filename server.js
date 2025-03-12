@@ -1,3 +1,5 @@
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:1556210245.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:896645313.
 
 // ./server.js
 import express from 'express';
@@ -5,11 +7,35 @@ import admin from 'firebase-admin';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import cron from 'node-cron';
+import { config } from "dotenv";
+
+
 
 import { readFileSync } from 'fs';
 import os from 'os';
 
-const serviceAccount = JSON.parse(readFileSync('./serviceAccountKey.json', 'utf8'));
+
+config()
+
+
+// Assigning values from environment variables to serviceAccount
+const serviceAccount = {
+    "type": process.env.GOOGLE_APPLICATION_CREDENTIALS_TYPE,
+    "project_id": process.env.GOOGLE_APPLICATION_CREDENTIALS_PROJECT_ID,
+    "private_key_id": process.env.GOOGLE_APPLICATION_CREDENTIALS_PRIVATE_KEY_ID,
+    "private_key": process.env.GOOGLE_APPLICATION_CREDENTIALS_PRIVATE_KEY,
+    "client_email": process.env.GOOGLE_APPLICATION_CREDENTIALS_CLIENT_EMAIL,
+    "client_id": process.env.GOOGLE_APPLICATION_CREDENTIALS_CLIENT_ID,
+    "auth_uri": process.env.GOOGLE_APPLICATION_CREDENTIALS_AUTH_URI,
+    "token_uri": process.env.GOOGLE_APPLICATION_CREDENTIALS_TOKEN_URI,
+    "auth_provider_x509_cert_url": process.env.GOOGLE_APPLICATION_CREDENTIALS_AUTH_PROVIDER_X509_CERT_URL,
+    "client_x509_cert_url": process.env.GOOGLE_APPLICATION_CREDENTIALS_CLIENT_X509_CERT_URL,
+    "universe_domain": process.env.GOOGLE_APPLICATION_CREDENTIALS_UNIVERSE_DOMAIN
+};
+
+
+
+
 
 // Function to determine the server's IP addresses
 function getServerIpAddresses() {
