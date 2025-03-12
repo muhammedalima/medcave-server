@@ -1,0 +1,27 @@
+{
+    "name": "node-express-api",
+    "description": "Simple api sample in Node",
+    "version": "1.0.0",
+    "private": true,
+    "main": "server.js",
+    "type": "module",
+    "scripts": {
+      "dev": "nodemon server.js",
+      "start": "node server.js"
+    },
+    "author": "Google LLC",
+    "license": "Apache-2.0",
+    "dependencies": {
+      "body-parser": "^1.20.3",
+      "cors": "^2.8.5",
+      "express": "^4.21.2",
+      "firebase-admin": "^13.2.0",
+      "geolib": "^3.3.4",
+      "node-cron": "^3.0.3",
+      "vercel": "^41.4.0"
+    },
+    "devDependencies": {
+      "nodemon": "^3.0.1"
+    }
+  }
+  
